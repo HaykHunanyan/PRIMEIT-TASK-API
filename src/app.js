@@ -1,5 +1,3 @@
-const path = require('path');
-const favicon = require('serve-favicon');
 const compress = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -17,7 +15,6 @@ const channels = require('./channels');
 const authentication = require('./authentication');
 
 const sequelize = require('./sequelize');
-const sendgrid = require('./sendgrid');
 const sequelizeToJsonSchemas = require('./sequelize-to-json-schemas');
 const { Model } = require('objection');
 const knex = require('knex')({
@@ -47,7 +44,6 @@ app.configure(configuration());
 app.use(helmet());
 app.use(cors());
 app.use(compress());
-app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Host the public folder
 app.use('/', express.static(app.get('public')));
 
@@ -55,8 +51,6 @@ app.use('/', express.static(app.get('public')));
 app.configure(express.rest());
 
 app.configure(socketio());
-
-app.configure(sendgrid);
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(sequelize);
