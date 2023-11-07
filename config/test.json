@@ -1,0 +1,38 @@
+{
+  "host": "localhost",
+  "port": 3031,
+  "CLIENT_URL": "https://staging.lawvo.com/",
+  "BACKEND_URL": "https://stagingapi.lawvo.com/",
+   "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "Ug7uUeXeerfWZcNEWE+K+Jfu2Tw=",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "encrypt": {
+    "hash": "Nq8L08FU37okkbRjENxLiO68mEejfggl",
+    "algorithm": "aes-256-ctr"
+  },
+  "postgres":  "postgresql://doadmin:ilM8ojLt73GMXq9h@db-postgresql-tor1-78473-do-user-1820447-0.b.db.ondigitalocean.com:25060/lawvo-dev"
+}

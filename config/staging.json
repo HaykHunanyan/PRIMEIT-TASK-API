@@ -1,0 +1,48 @@
+{
+  "host": "http://localhost",
+  "port": 3030,
+  "CLIENT_URL": " http://localhost:3000",
+  "BACKEND_URL": " http://localhost:3030",
+   "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "oauth": {
+      "defaults": {
+        "origin": "",
+        "protocol":"https",
+        "transport": "session",
+        "state": true
+      }
+    },
+    "entity": "user",
+    "service": "users",
+    "secret": "Ug7uUeXeerfWZcNEWE+K+Jfu2Tw=",
+    "authStrategies": [
+      "jwt",
+      "local",
+      "linkedin",
+      "google"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "180d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "encrypt": {
+    "hash": "Nq8L08FU37okkbRjENxLiO68mEejfggl",
+    "algorithm": "aes-256-ctr"
+  },
+  "postgres":  "postgresql://postgres:admin@127.0.0.1:5432/primeit-task"
+}
